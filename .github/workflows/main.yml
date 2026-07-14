@@ -1,0 +1,22 @@
+name: Kino Bot
+
+on:
+  workflow_dispatch:
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Python ishga tushirish
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Kutubxonalarni o'rnatish
+        run: |
+          pip install python-telegram-bot
+
+      - name: Botni ishga tushirish
+        run: python bot.py
